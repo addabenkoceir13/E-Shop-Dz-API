@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\API\Admin\CategoryController;
 use App\Http\Controllers\API\AuthController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -13,6 +14,8 @@ Route::middleware('auth:sanctum', 'isAPIAdmin')->group(function () {
     Route::get('/checkingAuthenticated', function ()  {
         return response()->json(['message' => 'You are in ', 'status'=>200], 200);
     });
+    // Router Add Categorys
+    Route::post('admin/store-category', [CategoryController::class , 'storeCategory']);
 });
 
 Route::middleware('auth:sanctum')->group(function () {
