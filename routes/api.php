@@ -14,8 +14,10 @@ Route::middleware('auth:sanctum', 'isAPIAdmin')->group(function () {
     Route::get('/checkingAuthenticated', function ()  {
         return response()->json(['message' => 'You are in ', 'status'=>200], 200);
     });
-    // Router Add Categorys
+    // Router for Add Categories
     Route::post('admin/store-category', [CategoryController::class , 'storeCategory']);
+    // Router for View categories
+    Route::get('admin/view-category', [CategoryController::class, 'viewCategory']);
 });
 
 Route::middleware('auth:sanctum')->group(function () {
