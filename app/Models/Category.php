@@ -12,7 +12,7 @@ class Category extends Model
     protected $fillable = [
         'slug',
         'name',
-        'desription',
+        'description',
         'status',
         'meta_title',
         'meta_ceywords',
