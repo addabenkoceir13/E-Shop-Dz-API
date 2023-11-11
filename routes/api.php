@@ -22,6 +22,8 @@ Route::middleware('auth:sanctum', 'isAPIAdmin')->group(function () {
     Route::get('admin/edit-category/{id}',[CategoryController::class,'editCategories']);
     // Router for update categories
     Route::put('admin/update-category/{id}', [CategoryController::class, 'updateCategories']);
+    // Router for deleted categories
+    Route::delete('admin/deleted-category/{id}', [CategoryController::class, 'deletedCategories']);
 });
 
 Route::middleware('auth:sanctum')->group(function () {
