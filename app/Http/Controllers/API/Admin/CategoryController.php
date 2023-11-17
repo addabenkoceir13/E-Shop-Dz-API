@@ -59,6 +59,7 @@ class CategoryController extends Controller
 
     }
 
+    // function for view edit category
     public function editCategories(Request $request, $id)
     {
         $category = Category::find($id);
@@ -78,6 +79,7 @@ class CategoryController extends Controller
         }
     }
 
+    // function for upddate category
     public function updateCategories(Request $request ,$id)
     {
         // Validation input required
@@ -124,6 +126,7 @@ class CategoryController extends Controller
         }
     }
 
+    // function for deleted category
     public function deletedCategories($id)
     {
         $category = Category::find($id);
@@ -144,6 +147,25 @@ class CategoryController extends Controller
         }
 
     }
+
+    // function for all category
+    public function AllCategories()
+    {
+        $categories = Category::all();
+        if ($categories) {
+            return response()->json([
+                'status' => 200,
+                'categories'=>$categories
+            ]);
+        }
+        else {
+            return response()->json([
+                'status' => 404,
+                'message'=> 'No Categories Found'
+                ]);
+        }
+    }
+
 
 
 
